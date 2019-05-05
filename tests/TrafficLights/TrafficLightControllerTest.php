@@ -34,13 +34,13 @@ class TrafficLightControllerTest extends TestCase
      * @dataProvider getStateProvider
      * @return void
      */
-    public function testGetState(ATrafficLight $mock, string $expected)
+    public function testGetState(ATrafficLight $trafficLight, string $expected)
     {
         $controller = $this->getMockBuilder(TrafficLightController::class)
             ->setMethods(['getTrafficLight'])
             ->getMock();
         $controller->method('getTrafficLight')
-            ->willReturn($mock);
+            ->willReturn($trafficLight);
         $this->assertEquals($controller->getState(), $expected);
     }
 
