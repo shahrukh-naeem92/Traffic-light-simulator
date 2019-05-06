@@ -22,10 +22,10 @@ class OffTest extends TestCase
         $state = new Off();
         $trafficLight = new NightTrafficLight(new Off());
         $trafficLight->stateCount = 0;
-        $this->assertEquals('Off', $state->show($trafficLight));
+        $this->assertEquals('Off', $state->showStateAndTransit($trafficLight));
         $this->assertInstanceOf(Off::class, $trafficLight->state);
         $trafficLight->stateCount = $state->getMaxNightCount();
-        $state->show($trafficLight);
+        $state->showStateAndTransit($trafficLight);
         $this->assertInstanceOf(Yellow::class, $trafficLight->state);
     }
 }

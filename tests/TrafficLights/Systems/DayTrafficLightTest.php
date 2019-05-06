@@ -25,7 +25,7 @@ class DayTrafficLightTest extends TestCase
     public function testGetState(AState $state, string $expected) : void
     {
         $trafficLight = new DayTrafficLight($state);
-        $this->assertEquals($expected, $trafficLight->getState());
+        $this->assertEquals($expected, $trafficLight->getStateAndTransit());
     }
 
     /**

@@ -22,10 +22,7 @@ class YellowTest extends TestCase
         $state = new Yellow();
         $trafficLight = new NightTrafficLight(new Yellow());
         $trafficLight->stateCount = 0;
-        $this->assertEquals('Yellow', $state->show($trafficLight));
-        $this->assertInstanceOf(Yellow::class, $trafficLight->state);
-        $trafficLight->stateCount = $state->getMaxDayCount();
-        $state->show($trafficLight);
+        $this->assertEquals('Yellow', $state->showStateAndTransit($trafficLight));
         $this->assertInstanceOf(Off::class, $trafficLight->state);
     }
 }

@@ -44,6 +44,6 @@ class TrafficLightController
      */
     public function getState() : string
     {
-        return $this->getTrafficLight()->getState();
+        return $this->getTrafficLight()->getStateAndTransit();
     }
 }

@@ -22,10 +22,10 @@ class RedTest extends TestCase
         $state = new Red();
         $trafficLight = new DayTrafficLight(new Red());
         $trafficLight->stateCount = 0;
-        $this->assertEquals('Red', $state->show($trafficLight));
+        $this->assertEquals('Red', $state->showStateAndTransit($trafficLight));
         $this->assertInstanceOf(Red::class, $trafficLight->state);
         $trafficLight->stateCount = $state->getMaxDayCount();
-        $state->show($trafficLight);
+        $state->showStateAndTransit($trafficLight);
         $this->assertInstanceOf(Green::class, $trafficLight->state);
     }
 }

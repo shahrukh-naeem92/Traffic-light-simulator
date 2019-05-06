@@ -30,7 +30,7 @@ abstract class AState
      * @param ATrafficLight $TrafficLight
      * @return string
      */
-    public function show(ATrafficLight $TrafficLight) : string
+    public function showStateAndTransit(ATrafficLight $TrafficLight) : string
     {
          $TrafficLight->stateCount++;
          $this->transit($TrafficLight);

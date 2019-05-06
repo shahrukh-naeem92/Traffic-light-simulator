@@ -34,9 +34,9 @@ abstract class ATrafficLight
      * Return color of current state
      * @return string
      */
-    public function getState() : string
+    public function getStateAndTransit() : string
     {
-        return $this->state->show($this);
+        return $this->state->showStateAndTransit($this);
     }
 
     /**
@@ -49,5 +49,4 @@ abstract class ATrafficLight
         $this->stateCount = 0;
         $this->state = $state;
     }
-
 }
