@@ -5,6 +5,7 @@ namespace Tests\TrafficLights\States;
 use PHPUnit\Framework\TestCase;
 use App\TrafficLights\States\Off;
 use App\TrafficLights\Systems\NightTrafficLight;
+use App\TrafficLights\States\Yellow;
 
 /**
  * Class OffTest
@@ -19,6 +20,12 @@ class OffTest extends TestCase
     public function testShow()
     {
         $state = new Off();
-        $this->assertEquals('Off', $state->show(new NightTrafficLight(new Off())));
+        $trafficLight = new NightTrafficLight(new Off());
+        $trafficLight->stateCount = 0;
+        $this->assertEquals('Off', $state->show($trafficLight));
+        $this->assertInstanceOf(Off::class, $trafficLight->state);
+        $trafficLight->stateCount = $state->getMaxNightCount();
+        $state->show($trafficLight);
+        $this->assertInstanceOf(Yellow::class, $trafficLight->state);
     }
 }

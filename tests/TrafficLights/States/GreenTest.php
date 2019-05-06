@@ -5,6 +5,7 @@ namespace Tests\TrafficLights\States;
 use PHPUnit\Framework\TestCase;
 use App\TrafficLights\States\Green;
 use App\TrafficLights\Systems\DayTrafficLight;
+use App\TrafficLights\States\GreenAndYellow;
 
 /**
  * Class GreenTest
@@ -19,6 +20,12 @@ class GreenTest extends TestCase
     public function testShow()
     {
         $state = new Green();
-        $this->assertEquals('Green', $state->show(new DayTrafficLight(new Green())));
+        $trafficLight = new DayTrafficLight(new Green());
+        $trafficLight->stateCount = 0;
+        $this->assertEquals('Green', $state->show($trafficLight));
+        $this->assertInstanceOf(Green::class, $trafficLight->state);
+        $trafficLight->stateCount = $state->getMaxDayCount();
+        $state->show($trafficLight);
+        $this->assertInstanceOf(GreenAndYellow::class, $trafficLight->state);
     }
 }

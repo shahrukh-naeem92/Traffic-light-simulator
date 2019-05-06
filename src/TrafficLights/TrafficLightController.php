@@ -29,7 +29,9 @@ class TrafficLightController
         if (time() >= strtotime("06:00:00") && time() <= strtotime("23:00:00")) {
             $this->trafficLight = empty($this->trafficLight) ? new DayTrafficLight(new Green()) : $this->trafficLight;
         } else {
-            $this->trafficLight = empty($this->trafficLight) ? new NightTrafficLight(new Yellow()) : $this->trafficLight;
+            $this->trafficLight = empty($this->trafficLight) ?
+                new NightTrafficLight(new Yellow()) :
+                $this->trafficLight;
         }
 
         return $this->trafficLight;

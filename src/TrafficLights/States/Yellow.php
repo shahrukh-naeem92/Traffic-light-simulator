@@ -35,7 +35,7 @@ class Yellow extends AState
      */
     protected function transit(ATrafficLight $TrafficLight) : void
     {
-        if ($TrafficLight instanceof NightTrafficLight && $TrafficLight->stateCount == $this->maxNightCount) {
+        if ($TrafficLight instanceof NightTrafficLight && $TrafficLight->stateCount >= $this->maxNightCount) {
             $TrafficLight->setState(new Off());
         }
     }

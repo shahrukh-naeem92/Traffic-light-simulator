@@ -33,7 +33,7 @@ use App\TrafficLights\States\Common\AState;
      */
     protected function transit(ATrafficLight $TrafficLight) : void
     {
-        if ($TrafficLight instanceof DayTrafficLight && $TrafficLight->stateCount == $this->maxDayCount) {
+        if ($TrafficLight instanceof DayTrafficLight && $TrafficLight->stateCount >= $this->maxDayCount) {
             $TrafficLight->setState(new GreenAndYellow());
         }
     }

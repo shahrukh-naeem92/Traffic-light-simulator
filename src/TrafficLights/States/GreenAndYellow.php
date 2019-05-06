@@ -34,7 +34,7 @@ class GreenAndYellow extends AState
      */
     protected function transit(ATrafficLight $TrafficLight) : void
     {
-        if ($TrafficLight instanceof DayTrafficLight && $TrafficLight->stateCount == $this->maxDayCount) {
+        if ($TrafficLight instanceof DayTrafficLight && $TrafficLight->stateCount >= $this->maxDayCount) {
             $TrafficLight->setState(new Red());
         }
     }

@@ -31,12 +31,28 @@ abstract class AState
      * @return string
      */
     public function show(ATrafficLight $TrafficLight) : string
-     {
+    {
          $TrafficLight->stateCount++;
          $this->transit($TrafficLight);
 
          return $this->state;
-     }
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaxDayCount() : ?int
+    {
+        return $this->maxDayCount;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaxNightCount() : ?int
+    {
+        return $this->maxNightCount;
+    }
 
     /**
      * Transit to next state if required
