@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent slave1
     stages {
         stage('build') {
             steps {
-                sh 'echo "hello world"'
+                sh 'helloworld.sh'
             }
         }
     }
