@@ -1,9 +1,9 @@
 pipeline {
-    agent { label 'slave1' }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh '/var/www/jenkins/helloworld.sh'
+                sh './vendor/bin/phpcpd --log-pmd build/logs/pmd-cpd.xml --exclude vendor . || exit 0'
             }
         }
     }
